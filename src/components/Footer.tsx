@@ -25,18 +25,52 @@ export default function Footer() {
             </div>
           </div>
 
-          {t.footer.sections.map((section: any) => (
-            <div key={section.title}>
-              <h4 className="font-bold text-sm uppercase tracking-widest mb-6">{section.title}</h4>
-              <ul className="space-y-4">
-                {section.links.map((link: string) => (
-                  <li key={link}>
-                    <a href="#" className="text-white/50 hover:text-white transition-colors text-sm">{link}</a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          {t.footer.sections.map((section: any) => {
+            const sectionId = {
+              'What We Do': '#services',
+              'Insights': '#insights',
+              'About Us': '#about',
+              'Support': '#support',
+              'Neler Yapıyoruz': '#services',
+              'Görüşler': '#insights',
+              'Hakkımızda': '#about',
+              'Destek': '#support',
+            }[section.title] || '#';
+
+            return (
+              <div key={section.title}>
+                <a href={sectionId} className="block group">
+                  <h4 className="font-bold text-sm uppercase tracking-widest mb-6 group-hover:text-brand-blue transition-colors">
+                    {section.title}
+                  </h4>
+                </a>
+                {section.desc && (
+                  <p className="text-white/40 text-xs leading-relaxed mb-6">
+                    {section.desc}
+                  </p>
+                )}
+                <ul className="space-y-4">
+                  {section.links.map((link: any) => (
+                    <li key={link.title}>
+                      <a 
+                        href={sectionId} 
+                        className="block group/link"
+                      >
+                        <span className="text-white/50 group-hover/link:text-white transition-colors text-sm font-medium block mb-1">
+                          {link.title}
+                        </span>
+                        {link.desc && (
+                          <span className="text-white/30 text-[10px] leading-tight block group-hover/link:text-white/50 transition-colors">
+                            {link.desc}
+                          </span>
+                        )}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
         </div>
 
         <div className="border-t border-white/10 pt-10">

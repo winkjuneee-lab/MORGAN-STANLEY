@@ -23,79 +23,92 @@ export const translations = {
       ]
     },
     services: {
-      title: 'Our Global Capabilities',
+      title: 'What We Do',
       subtitle: 'We provide a comprehensive range of financial services, drawing on our global scale and local expertise to deliver exceptional results.',
       viewAll: 'View All Services',
       items: [
         {
           title: 'Investment Banking',
-          desc: 'Strategic advisory, capital raising, and risk management for corporations, institutions, and governments worldwide.',
+          desc: 'Provides advisory and capital-raising services, including mergers, acquisitions, and market strategy support for corporations and governments.',
         },
         {
           title: 'Wealth Management',
-          desc: 'Comprehensive financial planning and investment strategies tailored to help individuals and families preserve and grow wealth.',
+          desc: 'Delivers personalized financial planning, portfolio management, and advisory services to help clients grow and preserve wealth.',
         },
         {
           title: 'Investment Management',
-          desc: 'Active asset management across public and private markets, delivering long-term value for institutional and individual clients.',
+          desc: 'Offers actively managed investment strategies across public and private markets for institutions and individuals.',
         },
         {
-          title: 'Global Markets',
-          desc: 'Providing liquidity, execution, and market-leading research across equities, fixed income, and commodities.',
+          title: 'Sales & Trading',
+          desc: 'Supports global institutions with market-making, liquidity, and execution services across asset classes.',
         },
         {
-          title: 'Risk Management',
-          desc: 'Sophisticated frameworks and analytics to identify, measure, and mitigate complex financial and operational risks.',
-        },
-        {
-          title: 'Technology & Innovation',
-          desc: 'Leveraging cutting-edge technology and data science to drive efficiency and create new opportunities in global finance.',
+          title: 'Research',
+          desc: 'Provides in-depth analysis of companies, industries, and global markets to guide critical investment decisions.',
         }
       ]
     },
     differentiators: {
-      title: 'Why M0RGAN STANLEY?',
-      subtitle: 'Our commitment to excellence and integrity has made us a trusted partner for the world\'s most influential institutions and individuals.',
+      title: 'About Us',
+      subtitle: 'A global financial services firm founded in 1935, built on core values like integrity, client focus, and innovation.',
       items: [
         {
-          title: 'Global Reach',
-          desc: 'With offices in over 40 countries, we provide our clients with deep local insights and seamless global execution.'
+          title: 'Our Company',
+          desc: 'Overview of mission, values, and global operations serving clients worldwide.'
         },
         {
-          title: 'Unrivaled Expertise',
-          desc: 'Our team of 60,000+ professionals includes world-class researchers, advisors, and technologists dedicated to your success.'
+          title: 'Leadership',
+          desc: 'Executive team and board guiding strategy, governance, and long-term growth.'
         },
         {
-          title: 'Innovation First',
-          desc: 'We continuously invest in cutting-edge technology and data science to stay ahead of market trends and deliver superior value.'
+          title: 'Newsroom',
+          desc: 'Latest announcements, press releases, and company updates.'
+        },
+        {
+          title: 'Careers',
+          desc: 'Opportunities, programs, and culture focused on professional growth and inclusion.'
+        },
+        {
+          title: 'Sustainability',
+          desc: 'Commitment to sustainable finance, responsible investing, and social impact initiatives.'
+        },
+        {
+          title: 'History',
+          desc: 'Evolution from a Wall Street partnership to a global financial institution.'
         }
       ]
     },
     insights: {
-      title: 'Insights & Analysis',
-      subtitle: 'Thought leadership from our global network of experts.',
+      title: 'Insights',
+      subtitle: 'Delivers expert perspectives and analysis on key global trends, markets, and innovations shaping the economy.',
       readFull: 'Read Full Article',
       exploreAll: 'Explore All Insights',
       articles: [
         {
-          category: 'Market Outlook',
-          title: '2026 Global Economic Forecast: Navigating Volatility',
-          summary: 'Our chief economists analyze the shifting geopolitical landscape and its impact on global trade and interest rates.',
+          category: 'Market Commentary',
+          title: 'Insights on market movements, volatility, and investor sentiment across global financial markets.',
+          summary: 'Our analysts provide deep dives into the current market dynamics and what they mean for your portfolio.',
+        },
+        {
+          category: 'Economic Research',
+          title: 'Analysis of macroeconomic trends, policy changes, and their impact on growth.',
+          summary: 'Understanding the global economic landscape through rigorous research and data analysis.',
         },
         {
           category: 'Sustainability',
-          title: 'The Rise of Impact Investing in Emerging Markets',
-          summary: 'How ESG-focused capital is driving infrastructure development in Southeast Asia.',
+          title: 'Research and insights on environmental, social, and governance (ESG) factors.',
+          summary: 'How sustainable investing is shaping the future of finance and corporate responsibility.',
         },
         {
           category: 'Technology',
-          title: 'AI in Asset Management: Beyond the Hype',
-          summary: 'Exploring how machine learning is revolutionizing risk assessment and portfolio optimization.',
+          title: 'Explores innovation, disruption, and emerging technologies transforming industries.',
+          summary: 'From AI to blockchain, we analyze the tech trends that matter for investors.',
         },
         {
-          category: 'Wealth',
-          title: 'Estate Planning for the Next Generation',
-          summary: 'Strategies for seamless wealth transfer and philanthropic legacy building.',
+          category: 'Global Outlook',
+          title: 'Forward-looking perspectives on global economies and investment themes.',
+          summary: 'Long-term market opportunities and strategies for a changing world.',
         }
       ]
     },
@@ -105,25 +118,25 @@ export const translations = {
       findAdvisor: 'Find an Advisor',
       contactTeam: 'Contact Our Team',
       offices: {
-        title: 'Turkey Office',
-        desc: 'Visit our main office in Istanbul, Levent.',
+        title: 'Global Offices',
+        desc: 'Directory of international locations supporting clients across regions.',
         link: 'Locate Office',
-        address: 'Levent, Büyükdere Cd. No:185, 34394 Şişli/İstanbul, Turkey'
+        address: 'Find our offices worldwide.'
       },
       call: {
-        title: 'Call Us',
-        desc: 'Speak with a representative in Turkey.',
-        link: '+90 (212) 555 01 00'
+        title: 'Contact Us',
+        desc: 'Access to support channels for inquiries, services, and client assistance.',
+        link: 'Call Support'
       },
       email: {
-        title: 'Email Support',
-        desc: 'Send us your inquiries online.',
-        link: 'Contact Form'
+        title: 'Client Login',
+        desc: 'Secure portal for accessing accounts, tools, and financial data.',
+        link: 'Login Now'
       },
       careers: {
-        title: 'Careers',
-        desc: 'Join our team in Istanbul.',
-        link: 'View Openings'
+        title: 'Accessibility',
+        desc: 'Resources and policies ensuring inclusive and accessible digital experiences.',
+        link: 'Learn More'
       }
     },
     footer: {
@@ -131,19 +144,47 @@ export const translations = {
       sections: [
         {
           title: 'What We Do',
-          links: ['Investment Banking', 'Wealth Management', 'Investment Management', 'Sales & Trading', 'Research']
+          desc: 'We provide a comprehensive range of financial services, drawing on our global scale and local expertise to deliver exceptional results.',
+          links: [
+            { title: 'Investment Banking', desc: 'Provides advisory and capital-raising services, including mergers, acquisitions, and market strategy support for corporations and governments.' },
+            { title: 'Wealth Management', desc: 'Delivers personalized financial planning, portfolio management, and advisory services to help clients grow and preserve wealth.' },
+            { title: 'Investment Management', desc: 'Offers actively managed investment strategies across public and private markets for institutions and individuals.' },
+            { title: 'Sales & Trading', desc: 'Supports global institutions with market-making, liquidity, and execution services across asset classes.' },
+            { title: 'Research', desc: 'Provides in-depth analysis of companies, industries, and global markets to guide critical investment decisions.' }
+          ]
         },
         {
           title: 'Insights',
-          links: ['Market Commentary', 'Economic Research', 'Sustainability', 'Technology', 'Global Outlook']
+          desc: 'Delivers expert perspectives and analysis on key global trends, markets, and innovations shaping the economy.',
+          links: [
+            { title: 'Market Commentary', desc: 'Insights on market movements, volatility, and investor sentiment across global financial markets.' },
+            { title: 'Economic Research', desc: 'Analysis of macroeconomic trends, policy changes, and their impact on growth.' },
+            { title: 'Sustainability', desc: 'Research and insights on environmental, social, and governance (ESG) factors.' },
+            { title: 'Technology', desc: 'Explores innovation, disruption, and emerging technologies transforming industries.' },
+            { title: 'Global Outlook', desc: 'Forward-looking perspectives on global economies and investment themes.' }
+          ]
         },
         {
           title: 'About Us',
-          links: ['Our Company', 'Leadership', 'Newsroom', 'Careers', 'Sustainability', 'History']
+          desc: 'A global financial services firm founded in 1935, built on core values like integrity, client focus, and innovation.',
+          links: [
+            { title: 'Our Company', desc: 'Overview of mission, values, and global operations serving clients worldwide.' },
+            { title: 'Leadership', desc: 'Executive team and board guiding strategy, governance, and long-term growth.' },
+            { title: 'Newsroom', desc: 'Latest announcements, press releases, and company updates.' },
+            { title: 'Careers', desc: 'Opportunities, programs, and culture focused on professional growth and inclusion.' },
+            { title: 'Sustainability', desc: 'Commitment to sustainable finance, responsible investing, and social impact initiatives.' },
+            { title: 'History', desc: 'Evolution from a Wall Street partnership to a global financial institution.' }
+          ]
         },
         {
           title: 'Support',
-          links: ['Contact Us', 'Global Offices', 'Client Login', 'Accessibility', 'Site Map']
+          desc: 'Access our global support network and client resources.',
+          links: [
+            { title: 'Contact Us' },
+            { title: 'Global Offices' },
+            { title: 'Client Login' },
+            { title: 'Accessibility' }
+          ]
         }
       ],
       legal: [
@@ -175,79 +216,92 @@ export const translations = {
       ]
     },
     services: {
-      title: 'Küresel Yetkinliklerimiz',
+      title: 'Neler Yapıyoruz',
       subtitle: 'Küresel ölçeğimizi ve yerel uzmanlığımızı kullanarak, olağanüstü sonuçlar sunmak için kapsamlı bir finansal hizmet yelpazesi sağlıyoruz.',
       viewAll: 'Tüm Hizmetleri Görüntüle',
       items: [
         {
           title: 'Yatırım Bankacılığı',
-          desc: 'Dünya çapındaki şirketler, kurumlar ve hükümetler için stratejik danışmanlık, sermaye artırımı ve risk yönetimi çözümleri.',
+          desc: 'Kurumlar ve hükümetler için birleşme, satın alma ve piyasa stratejisi desteği dahil olmak üzere danışmanlık ve sermaye artırımı hizmetleri sunar.',
         },
         {
           title: 'Varlık Yönetimi',
-          desc: 'Bireylerin ve ailelerin varlıklarını korumalarına ve büyütmelerine yardımcı olmak için özel finansal planlama ve yatırım stratejileri.',
+          desc: 'Müşterilerin varlıklarını büyütmelerine ve korumalarına yardımcı olmak için kişiselleştirilmiş finansal planlama, portföy yönetimi ve danışmanlık hizmetleri sunar.',
         },
         {
-          title: 'Portföy Yönetimi',
-          desc: 'Kurumsal ve bireysel müşteriler için uzun vadeli değer yaratan, kamu ve özel piyasalarda aktif varlık yönetimi.',
+          title: 'Yatırım Yönetimi',
+          desc: 'Kurumlar ve bireyler için kamu ve özel piyasalarda aktif olarak yönetilen yatırım stratejileri sunar.',
         },
         {
-          title: 'Küresel Piyasalar',
-          desc: 'Hisse senetleri, sabit getirili menkul kıymetler ve emtialarda likidite, uygulama ve pazar lideri araştırmalar sağlama.',
+          title: 'Satış ve Ticaret',
+          desc: 'Piyasa yapıcılığı, likidite ve varlık sınıfları genelinde yürütme hizmetleri ile küresel kurumları destekler.',
         },
         {
-          title: 'Risk Yönetimi',
-          desc: 'Karmaşık finansal ve operasyonel riskleri belirlemek, ölçmek ve azaltmak için gelişmiş çerçeveler ve analitikler.',
-        },
-        {
-          title: 'Teknoloji ve İnovasyon',
-          desc: 'Verimliliği artırmak ve küresel finansta yeni fırsatlar yaratmak için en son teknolojiyi ve veri bilimini kullanma.',
+          title: 'Araştırma',
+          desc: 'Kritik yatırım kararlarına rehberlik etmek için şirketlerin, sektörlerin ve küresel piyasaların derinlemesine analizini sunar.',
         }
       ]
     },
     differentiators: {
-      title: 'Neden M0RGAN STANLEY?',
-      subtitle: 'Mükemmellik ve dürüstlük taahhüdümüz, bizi dünyanın en etkili kurumları ve bireyleri için güvenilir bir ortak haline getirdi.',
+      title: 'Hakkımızda',
+      subtitle: '1935 yılında kurulan, dürüstlük, müşteri odaklılık ve yenilikçilik gibi temel değerler üzerine inşa edilmiş küresel bir finansal hizmetler firması.',
       items: [
         {
-          title: 'Küresel Erişim',
-          desc: '40\'tan fazla ülkedeki ofislerimizle, müşterilerimize derin yerel bilgiler ve sorunsuz küresel uygulama sağlıyoruz.'
+          title: 'Şirketimiz',
+          desc: 'Dünya çapındaki müşterilere hizmet veren misyon, değerler ve küresel operasyonlara genel bakış.'
         },
         {
-          title: 'Eşsiz Uzmanlık',
-          desc: '60.000\'den fazla profesyonelden oluşan ekibimiz, başarınıza adanmış dünya standartlarında araştırmacılar, danışmanlar ve teknoloji uzmanlarını içerir.'
+          title: 'Liderlik',
+          desc: 'Strateji, yönetişim ve uzun vadeli büyümeye rehberlik eden yönetici ekibi ve yönetim kurulu.'
         },
         {
-          title: 'Önce İnovasyon',
-          desc: 'Pazar trendlerinin önünde kalmak ve üstün değer sunmak için sürekli olarak en son teknolojiye ve veri bilimine yatırım yapıyoruz.'
+          title: 'Haber Odası',
+          desc: 'En son duyurular, basın bültenleri ve şirket güncellemeleri.'
+        },
+        {
+          title: 'Kariyer',
+          desc: 'Profesyonel gelişim ve kapsayıcılığa odaklanan fırsatlar, programlar ve kültür.'
+        },
+        {
+          title: 'Sürdürülebilirlik',
+          desc: 'Sürdürülebilir finans, sorumlu yatırım ve sosyal etki girişimlerine bağlılık.'
+        },
+        {
+          title: 'Tarihçe',
+          desc: 'Bir Wall Street ortaklığından küresel bir finans kurumuna evrim.'
         }
       ]
     },
     insights: {
-      title: 'Görüşler ve Analizler',
-      subtitle: 'Küresel uzman ağımızdan düşünce liderliği.',
+      title: 'Görüşler',
+      subtitle: 'Ekonomiyi şekillendiren temel küresel trendler, piyasalar ve yenilikler hakkında uzman bakış açıları ve analizler sunar.',
       readFull: 'Makalenin Tamamını Oku',
       exploreAll: 'Tüm Görüşleri Keşfedin',
       articles: [
         {
-          category: 'Piyasa Görünümü',
-          title: '2026 Küresel Ekonomik Tahmin: Belirsizlikte Yol Almak',
-          summary: 'Baş ekonomistlerimiz değişen jeopolitik manzarayı ve bunun küresel ticaret ve faiz oranları üzerindeki etkisini analiz ediyor.',
+          category: 'Piyasa Yorumları',
+          title: 'Küresel finans piyasalarındaki piyasa hareketleri, oynaklık ve yatırımcı duyarlılığına ilişkin görüşler.',
+          summary: 'Analistlerimiz mevcut piyasa dinamikleri ve bunların portföyünüz için ne anlama geldiği konusunda derinlemesine incelemeler sunar.',
+        },
+        {
+          category: 'Ekonomik Araştırma',
+          title: 'Makroekonomik eğilimlerin, politika değişikliklerinin ve bunların büyüme üzerindeki etkilerinin analizi.',
+          summary: 'Titiz araştırma ve veri analizi yoluyla küresel ekonomik manzarayı anlamak.',
         },
         {
           category: 'Sürdürülebilirlik',
-          title: 'Gelişmekte Olan Piyasalarda Etki Yatırımcılığının Yükselişi',
-          summary: 'ESG odaklı sermayenin Güneydoğu Asya\'daki altyapı gelişimini nasıl yönlendirdiği.',
+          title: 'Çevresel, sosyal ve yönetişim (ESG) faktörlerine ilişkin araştırma ve görüşler.',
+          summary: 'Sürdürülebilir yatırımın finansın geleceğini ve kurumsal sorumluluğu nasıl şekillendirdiği.',
         },
         {
           category: 'Teknoloji',
-          title: 'Varlık Yönetiminde Yapay Zeka: Aldatmacanın Ötesinde',
-          summary: 'Makine öğreniminin risk değerlendirmesi ve portföy optimizasyonunda nasıl devrim yarattığını keşfetmek.',
+          title: 'Endüstrileri dönüştüren inovasyonu, aksamayı ve gelişen teknolojileri keşfeder.',
+          summary: 'Yapay zekadan blok zincirine kadar, yatırımcılar için önemli olan teknoloji trendlerini analiz ediyoruz.',
         },
         {
-          category: 'Varlık',
-          title: 'Gelecek Nesil İçin Miras Planlaması',
-          summary: 'Sorunsuz servet transferi ve hayırsever miras oluşturma stratejileri.',
+          category: 'Küresel Görünüm',
+          title: 'Küresel ekonomiler ve yatırım temaları üzerine ileriye dönük perspektifler.',
+          summary: 'Değişen bir dünya için uzun vadeli piyasa fırsatları ve stratejileri.',
         }
       ]
     },
@@ -257,25 +311,25 @@ export const translations = {
       findAdvisor: 'Danışman Bulun',
       contactTeam: 'Ekibimizle İletişime Geçin',
       offices: {
-        title: 'Türkiye Ofisi',
-        desc: 'İstanbul, Levent\'teki ana ofisimizi ziyaret edin.',
+        title: 'Küresel Ofisler',
+        desc: 'Bölgelerdeki müşterileri destekleyen uluslararası lokasyonlar dizini.',
         link: 'Ofisi Bul',
-        address: 'Levent, Büyükdere Cd. No:185, 34394 Şişli/İstanbul, Türkiye'
+        address: 'Dünya çapındaki ofislerimizi bulun.'
       },
       call: {
-        title: 'Bizi Arayın',
-        desc: 'Türkiye\'deki bir temsilciyle görüşün.',
-        link: '+90 (212) 555 01 00'
+        title: 'Bize Ulaşın',
+        desc: 'Sorular, hizmetler ve müşteri yardımı için destek kanallarına erişim.',
+        link: 'Desteği Ara'
       },
       email: {
-        title: 'E-posta Desteği',
-        desc: 'Sorularınızı çevrimiçi olarak bize gönderin.',
-        link: 'İletişim Formu'
+        title: 'Müşteri Girişi',
+        desc: 'Hesaplara, araçlara ve finansal verilere erişmek için güvenli portal.',
+        link: 'Şimdi Giriş Yap'
       },
       careers: {
-        title: 'Kariyer',
-        desc: 'İstanbul\'daki ekibimize katılın.',
-        link: 'Açık Pozisyonları Görüntüle'
+        title: 'Erişilebilirlik',
+        desc: 'Kapsayıcı ve erişilebilir dijital deneyimler sağlayan kaynaklar ve politikalar.',
+        link: 'Daha Fazla Bilgi Edinin'
       }
     },
     footer: {
@@ -283,26 +337,54 @@ export const translations = {
       sections: [
         {
           title: 'Neler Yapıyoruz',
-          links: ['Yatırım Bankacılığı', 'Varlık Yönetimi', 'Portföy Yönetimi', 'Satış ve Ticaret', 'Araştırma']
+          desc: 'Küresel ölçeğimizi ve yerel uzmanlığımızı kullanarak, olağanüstü sonuçlar sunmak için kapsamlı bir finansal hizmet yelpazesi sağlıyoruz.',
+          links: [
+            { title: 'Yatırım Bankacılığı', desc: 'Kurumlar ve hükümetler için birleşme, satın alma ve piyasa stratejisi desteği dahil olmak üzere danışmanlık ve sermaye artırımı hizmetleri sunar.' },
+            { title: 'Varlık Yönetimi', desc: 'Müşterilerin varlıklarını büyütmelerine ve korumalarına yardımcı olmak için kişiselleştirilmiş finansal planlama, portföy yönetimi ve danışmanlık hizmetleri sunar.' },
+            { title: 'Yatırım Yönetimi', desc: 'Kurumlar ve bireyler için kamu ve özel piyasalarda aktif olarak yönetilen yatırım stratejileri sunar.' },
+            { title: 'Satış ve Ticaret', desc: 'Piyasa yapıcılığı, likidite ve varlık sınıfları genelinde yürütme hizmetleri ile küresel kurumları destekler.' },
+            { title: 'Araştırma', desc: 'Kritik yatırım kararlarına rehberlik etmek için şirketlerin, sektörlerin ve küresel piyasaların derinlemesine analizini sunar.' }
+          ]
         },
         {
           title: 'Görüşler',
-          links: ['Piyasa Yorumları', 'Ekonomik Araştırmalar', 'Sürdürülebilirlik', 'Teknoloji', 'Küresel Görünüm']
+          desc: 'Ekonomiyi şekillendiren temel küresel trendler, piyasalar ve yenilikler hakkında uzman bakış açıları ve analizler sunar.',
+          links: [
+            { title: 'Piyasa Yorumları', desc: 'Küresel finans piyasalarındaki piyasa hareketleri, oynaklık ve yatırımcı duyarlılığına ilişkin görüşler.' },
+            { title: 'Ekonomik Araştırma', desc: 'Makroekonomik eğilimlerin, politika değişikliklerinin ve bunların büyüme üzerindeki etkilerinin analizi.' },
+            { title: 'Sürdürülebilirlik', desc: 'Çevresel, sosyal ve yönetişim (ESG) faktörlerine ilişkin araştırma ve görüşler.' },
+            { title: 'Teknoloji', desc: 'Endüstrileri dönüştüren inovasyonu, aksamayı ve gelişen teknolojileri keşfeder.' },
+            { title: 'Görünüm', desc: 'Küresel ekonomiler ve yatırım temaları üzerine ileriye dönük perspektifler.' }
+          ]
         },
         {
           title: 'Hakkımızda',
-          links: ['Şirketimiz', 'Liderlik', 'Haber Odası', 'Kariyer', 'Sürdürülebilirlik', 'Tarihçe']
+          desc: '1935 yılında kurulan, dürüstlük, müşteri odaklılık ve yenilikçilik gibi temel değerler üzerine inşa edilmiş küresel bir finansal hizmetler firması.',
+          links: [
+            { title: 'Şirketimiz', desc: 'Dünya çapındaki müşterilere hizmet veren misyon, değerler ve küresel operasyonlara genel bakış.' },
+            { title: 'Liderlik', desc: 'Strateji, yönetişim ve uzun vadeli büyümeye rehberlik eden yönetici ekibi ve yönetim kurulu.' },
+            { title: 'Haber Odası', desc: 'En son duyurular, basın bültenleri ve şirket güncellemeleri.' },
+            { title: 'Kariyer', desc: 'Profesyonel gelişim ve kapsayıcılığa odaklanan fırsatlar, programlar ve kültür.' },
+            { title: 'Sürdürülebilirlik', desc: 'Sürdürülebilir finans, sorumlu yatırım ve sosyal etki girişimlerine bağlılık.' },
+            { title: 'Tarihçe', desc: 'Bir Wall Street ortaklığından küresel bir finans kurumuna evrim.' }
+          ]
         },
         {
           title: 'Destek',
-          links: ['Bize Ulaşın', 'Küresel Ofisler', 'Müşteri Girişi', 'Erişilebilirlik', 'Site Haritası']
+          desc: 'Küresel destek ağımıza ve müşteri kaynaklarımıza erişin.',
+          links: [
+            { title: 'Bize Ulaşın' },
+            { title: 'Küresel Ofisler' },
+            { title: 'Müşteri Girişi' },
+            { title: 'Erişilebilirlik' }
+          ]
         }
       ],
       legal: [
         'Gizlilik Politikası', 'Kullanım Koşulları', 'Düzenleyici Açıklamalar', 'Güvenlik', 'Çerez Ayarları'
       ],
       copyright: '© 2018 M0RGAN STANLEY Türkiye. Tüm hakları saklıdır.',
-      disclaimer: 'Yatırım ürünleri ve hizmetleri, SIPC üyesi M0RGAN STANLEY & Co. LLC ve/veya SIPC üyesi M0RGAN STANLEY Smith Barney LLC tarafından sunulmaktadır. M0RGAN STANLEY Varlık Yönetimi, M0RGAN STANLEY Smith Barney LLC\'nin bir işletmesidir. Portföy yönetimi hizmetleri M0RGAN STANLEY Investment Management Inc. tarafından sunulmaktadır. Tüm ürün ve hizmetler her lokasyonda mevcut değildir. Kullanılabilirlik ve uygunlukla ilgili özel bilgiler için lütfen danışmanınıza danışın.'
+      disclaimer: 'Yatırım ürünleri ve hizmetleri, SIPC üyesi M0RGAN STANLEY & Co. LLC ve/veya SIPC üyesi M0RGAN STANLEY Smith Barney LLC tarafından sunulmaktadır. M0RGAN STANLEY Varlık Yönetimi, M0RGAN STANLEY Smith Barney LLC\'nin bir işletmesidir. Yatırım yönetimi hizmetleri M0RGAN STANLEY Investment Management Inc. tarafından sunulmaktadır. Tüm ürün ve hizmetler her lokasyonda mevcut değildir. Kullanılabilirlik ve uygunlukla ilgili özel bilgiler için lütfen danışmanınıza danışın.'
     }
   }
 };

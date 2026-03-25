@@ -7,7 +7,7 @@ import {
   updateProfile
 } from 'firebase/auth';
 import { doc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { auth, db } from '../firebase';
+import { auth, db, handleFirestoreError, OperationType } from '../firebase';
 import { useLanguage } from '../LanguageContext';
 
 interface AuthModalProps {
@@ -39,13 +39,18 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         await updateProfile(user, { displayName });
 
         // Create user document in Firestore
-        await setDoc(doc(db, 'users', user.uid), {
-          uid: user.uid,
-          email: user.email,
-          displayName,
-          role: 'client',
-          createdAt: serverTimestamp()
-        });
+        const path = `users/${user.uid}`;
+        try {
+          await setDoc(doc(db, 'users', user.uid), {
+            uid: user.uid,
+            email: user.email,
+            displayName,
+            role: 'client',
+            createdAt: serverTimestamp()
+          });
+        } catch (err) {
+          handleFirestoreError(err, OperationType.WRITE, path);
+        }
       }
       onClose();
     } catch (err: any) {

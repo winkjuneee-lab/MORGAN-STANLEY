@@ -25,7 +25,7 @@ export default function Services() {
   ];
 
   return (
-    <section className="py-24 bg-white">
+    <section id="services" className="py-24 bg-white">
       <div className="container-custom">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div className="max-w-2xl">
@@ -50,6 +50,7 @@ export default function Services() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
               className="group cursor-pointer"
+              onClick={() => document.getElementById('support')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <div className="relative h-64 overflow-hidden mb-6 rounded-sm">
                 <img 

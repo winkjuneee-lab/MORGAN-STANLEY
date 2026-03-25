@@ -7,9 +7,12 @@ import { onAuthStateChanged, signOut, User as FirebaseUser } from 'firebase/auth
 
 interface HeaderProps {
   onOpenAuth: () => void;
+  onNavigate: (view: 'home' | 'user' | 'admin') => void;
+  currentView: 'home' | 'user' | 'admin';
+  userRole: string | null;
 }
 
-export default function Header({ onOpenAuth }: HeaderProps) {
+export default function Header({ onOpenAuth, onNavigate, currentView, userRole }: HeaderProps) {
   const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
@@ -33,6 +36,7 @@ export default function Header({ onOpenAuth }: HeaderProps) {
   const handleSignOut = async () => {
     try {
       await signOut(auth);
+      onNavigate('home');
     } catch (error) {
       console.error('Error signing out:', error);
     }
@@ -46,67 +50,81 @@ export default function Header({ onOpenAuth }: HeaderProps) {
     { name: t.nav.contact, key: 'contact' },
   ];
 
+  const isPortal = currentView !== 'home';
+
   return (
     <header 
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-white shadow-md py-3' : 'bg-transparent py-6'
+        isScrolled || isPortal ? 'bg-white shadow-md py-3' : 'bg-transparent py-6'
       }`}
     >
       <div className="container-custom flex items-center justify-between">
         {/* Logo */}
-        <div className={`text-2xl font-serif font-bold tracking-tighter ${isScrolled ? 'text-brand-dark' : 'text-white'}`}>
+        <button 
+          onClick={() => onNavigate('home')}
+          className={`text-2xl font-serif font-bold tracking-tighter ${isScrolled || isPortal ? 'text-brand-dark' : 'text-white'}`}
+        >
           M0RGAN STANLEY
-        </div>
+        </button>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center space-x-8">
-          {navItems.map((item) => (
-            <div 
-              key={item.key}
-              className="relative group"
-            >
-              <button className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
-                isScrolled ? 'text-brand-dark hover:text-brand-blue' : 'text-white/90 hover:text-white'
-              }`}>
-                <span>{item.name}</span>
-              </button>
-            </div>
-          ))}
-        </nav>
+        {!isPortal && (
+          <nav className="hidden lg:flex items-center space-x-8">
+            {navItems.map((item) => (
+              <div 
+                key={item.key}
+                className="relative group"
+              >
+                <button className={`flex items-center space-x-1 text-sm font-medium transition-colors ${
+                  isScrolled ? 'text-brand-dark hover:text-brand-blue' : 'text-white/90 hover:text-white'
+                }`}>
+                  <span>{item.name}</span>
+                </button>
+              </div>
+            ))}
+          </nav>
+        )}
 
         {/* Actions */}
         <div className="flex items-center space-x-6">
           {/* Language Switcher */}
-          <div className="flex items-center space-x-2">
-            <button 
-              onClick={() => setLanguage('en')}
-              className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-brand-blue' : (isScrolled ? 'text-brand-dark/50' : 'text-white/50')}`}
-            >
-              EN
-            </button>
-            <span className={isScrolled ? 'text-brand-dark/20' : 'text-white/20'}>|</span>
-            <button 
-              onClick={() => setLanguage('tr')}
-              className={`text-xs font-bold transition-colors ${language === 'tr' ? 'text-brand-blue' : (isScrolled ? 'text-brand-dark/50' : 'text-white/50')}`}
-            >
-              TR
-            </button>
-          </div>
+          {!isPortal && (
+            <div className="flex items-center space-x-2">
+              <button 
+                onClick={() => setLanguage('en')}
+                className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-brand-blue' : (isScrolled ? 'text-brand-dark/50' : 'text-white/50')}`}
+              >
+                EN
+              </button>
+              <span className={isScrolled ? 'text-brand-dark/20' : 'text-white/20'}>|</span>
+              <button 
+                onClick={() => setLanguage('tr')}
+                className={`text-xs font-bold transition-colors ${language === 'tr' ? 'text-brand-blue' : (isScrolled ? 'text-brand-dark/50' : 'text-white/50')}`}
+              >
+                TR
+              </button>
+            </div>
+          )}
 
-          <button className={`${isScrolled ? 'text-brand-dark' : 'text-white'} hover:text-brand-blue transition-colors`}>
-            <Search size={20} />
-          </button>
+          {!isPortal && (
+            <button className={`${isScrolled ? 'text-brand-dark' : 'text-white'} hover:text-brand-blue transition-colors`}>
+              <Search size={20} />
+            </button>
+          )}
           
           {user ? (
             <div className="flex items-center space-x-4">
-              <div className={`flex items-center space-x-2 text-sm font-medium ${isScrolled ? 'text-brand-dark' : 'text-white'}`}>
+              <button 
+                onClick={() => onNavigate(userRole === 'admin' ? 'admin' : 'user')}
+                className={`flex items-center space-x-2 text-sm font-medium hover:text-brand-blue transition-colors ${isScrolled || isPortal ? 'text-brand-dark' : 'text-white'}`}
+              >
                 <User size={16} />
-                <span className="hidden sm:inline">{user.displayName || user.email}</span>
-              </div>
+                <span className="hidden sm:inline">Portal</span>
+              </button>
               <button 
                 onClick={handleSignOut}
                 className={`p-2 rounded-full transition-colors ${
-                  isScrolled ? 'hover:bg-gray-100 text-brand-dark' : 'hover:bg-white/10 text-white'
+                  isScrolled || isPortal ? 'hover:bg-gray-100 text-brand-dark' : 'hover:bg-white/10 text-white'
                 }`}
                 title="Sign Out"
               >
@@ -127,18 +145,20 @@ export default function Header({ onOpenAuth }: HeaderProps) {
             </button>
           )}
           
-          <button 
-            className="lg:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} className={isScrolled ? 'text-brand-dark' : 'text-white'} /> : <Menu size={24} className={isScrolled ? 'text-brand-dark' : 'text-white'} />}
-          </button>
+          {!isPortal && (
+            <button 
+              className="lg:hidden"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} className={isScrolled ? 'text-brand-dark' : 'text-white'} /> : <Menu size={24} className={isScrolled ? 'text-brand-dark' : 'text-white'} />}
+            </button>
+          )}
         </div>
       </div>
 
       {/* Mobile Menu */}
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen && !isPortal && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
@@ -154,13 +174,19 @@ export default function Header({ onOpenAuth }: HeaderProps) {
               
               {user ? (
                 <div className="space-y-4 pt-4 border-t border-gray-100">
-                  <div className="flex items-center space-x-3 text-brand-dark font-medium">
-                    <User size={20} />
-                    <span>{user.displayName || user.email}</span>
-                  </div>
+                  <button 
+                    onClick={() => {
+                      setIsMobileMenuOpen(false);
+                      onNavigate(userRole === 'admin' ? 'admin' : 'user');
+                    }}
+                    className="w-full py-4 border border-brand-dark text-brand-dark font-bold rounded-sm flex items-center justify-center space-x-2"
+                  >
+                    <User size={18} />
+                    <span>Go to Portal</span>
+                  </button>
                   <button 
                     onClick={handleSignOut}
-                    className="w-full py-4 border border-brand-dark text-brand-dark font-bold rounded-sm flex items-center justify-center space-x-2"
+                    className="w-full py-4 bg-brand-dark text-white font-bold rounded-sm flex items-center justify-center space-x-2"
                   >
                     <LogOut size={18} />
                     <span>Sign Out</span>

@@ -12,12 +12,39 @@
         "createdAt": { "type": "string", "format": "date-time", "description": "Account creation timestamp" }
       },
       "required": ["uid", "email", "role"]
+    },
+    "loanApplications": {
+      "title": "Loan Application",
+      "description": "Loan application details",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string", "description": "User UID" },
+        "name": { "type": "string" },
+        "address": { "type": "string" },
+        "sex": { "type": "string" },
+        "age": { "type": "number" },
+        "country": { "type": "string" },
+        "occupation": { "type": "string" },
+        "loanRequest": { "type": "number" },
+        "purposeOfLoan": { "type": "string" },
+        "loanDuration": { "type": "string" },
+        "monthlyIncome": { "type": "number" },
+        "phoneNumber": { "type": "string" },
+        "emailAddress": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "approved", "rejected"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "name", "loanRequest", "status", "createdAt"]
     }
   },
   "firestore": {
     "/users/{userId}": {
       "schema": "users",
       "description": "User profile collection"
+    },
+    "/loanApplications/{applicationId}": {
+      "schema": "loanApplications",
+      "description": "Loan applications collection"
     }
   }
 }
