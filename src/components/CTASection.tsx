@@ -33,7 +33,7 @@ export default function CTASection() {
               <p className="text-gray-500 text-sm mb-4">{t.cta.offices.desc}</p>
               <p className="text-xs text-gray-400 mb-4">{t.cta.offices.address}</p>
               <a 
-                href="https://www.google.com/maps/search/Morgan+Stanley+Istanbul"
+                href="https://www.google.com/maps/place/Esentepe,+B%C3%BCy%C3%BCkdere+Cd.+No:193,+34394+Be%C5%9Fikta%C5%9F%2F%C4%B0stanbul/@41.0795992,29.0085066,17z/data=!3m1!4b1!4m6!3m5!1s0x14cab668762814eb:0x1379fcb1c616c8d6!8m2!3d41.0795992!4d29.0110815!16s%2Fg%2F11nnksgzdd?entry=ttu&g_ep=EgoyMDI2MDMyMy4xIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="View global office locations on map"
