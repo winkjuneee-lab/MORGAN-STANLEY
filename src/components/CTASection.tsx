@@ -1,38 +1,9 @@
-import React, { useRef, useState } from 'react';
-import { ArrowRight, MapPin, Phone, Mail, X } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, MapPin, Phone, Mail } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export default function CTASection() {
-  const { t, language } = useLanguage();
-  const fileInputRef = useRef<HTMLInputElement>(null);
-  const [uploadedImage, setUploadedImage] = useState<string | null>(null);
-  const [isLocating, setIsLocating] = useState(false);
-  const [showImage, setShowImage] = useState(false);
-
-  const handleLocateClick = (e: React.MouseEvent) => {
-    e.preventDefault();
-    if (uploadedImage) {
-      setShowImage(true);
-    } else {
-      fileInputRef.current?.click();
-    }
-  };
-
-  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      setIsLocating(true);
-      setTimeout(() => {
-        const reader = new FileReader();
-        reader.onloadend = () => {
-          setUploadedImage(reader.result as string);
-          setIsLocating(false);
-          setShowImage(true);
-        };
-        reader.readAsDataURL(file);
-      }, 1000);
-    }
-  };
+  const { t } = useLanguage();
 
   return (
     <section id="support" className="py-24 bg-white relative">
@@ -57,42 +28,20 @@ export default function CTASection() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
             <div className="p-8 border border-gray-100 hover:shadow-lg transition-shadow rounded-sm relative group/card overflow-hidden">
-              {uploadedImage && (
-                <div className={`absolute inset-0 z-10 bg-white transition-transform duration-500 ${showImage ? 'translate-y-0' : 'translate-y-full'}`}>
-                  <button 
-                    onClick={() => setShowImage(false)}
-                    className="absolute top-2 right-2 p-1 bg-brand-dark text-white rounded-full hover:bg-brand-blue transition-colors z-20"
-                  >
-                    <X size={16} />
-                  </button>
-                  <img 
-                    src={uploadedImage} 
-                    alt="Office Map" 
-                    className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
-                  />
-                </div>
-              )}
-              
-              <MapPin className={`mb-4 transition-colors ${isLocating ? 'text-brand-blue animate-bounce' : 'text-brand-blue'}`} size={32} />
+              <MapPin className="text-brand-blue mb-4" size={32} />
               <h3 className="text-xl font-serif text-brand-dark mb-2">{t.cta.offices.title}</h3>
               <p className="text-gray-500 text-sm mb-4">{t.cta.offices.desc}</p>
               <p className="text-xs text-gray-400 mb-4">{t.cta.offices.address}</p>
-              <input 
-                type="file" 
-                ref={fileInputRef} 
-                onChange={handleFileChange} 
-                className="hidden" 
-                accept="image/*"
-              />
-              <button 
-                onClick={handleLocateClick}
-                disabled={isLocating}
-                className="text-brand-blue font-bold text-sm hover:underline flex items-center space-x-2 disabled:opacity-50"
+              <a 
+                href="https://www.google.com/maps/search/Morgan+Stanley+Istanbul"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="View global office locations on map"
+                className="text-brand-blue font-bold text-sm hover:underline flex items-center space-x-2 cursor-pointer"
               >
-                <span>{isLocating ? (language === 'tr' ? 'Konumlanıyor...' : 'Locating...') : t.cta.offices.link}</span>
-                {!isLocating && <ArrowRight size={14} className="opacity-0 group-hover/card:opacity-100 transition-opacity" />}
-              </button>
+                <span>{t.cta.offices.link}</span>
+                <ArrowRight size={14} className="opacity-0 group-hover/card:opacity-100 transition-opacity" />
+              </a>
             </div>
             <div className="p-8 border border-gray-100 hover:shadow-lg transition-shadow rounded-sm">
               <Phone className="text-brand-blue mb-4" size={32} />
@@ -115,38 +64,6 @@ export default function CTASection() {
           </div>
         </div>
       </div>
-
-      {/* Image Preview Modal */}
-      {uploadedImage && (
-        <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4">
-          <div className="bg-white p-4 rounded-sm max-w-4xl w-full relative">
-            <button 
-              onClick={() => setUploadedImage(null)}
-              className="absolute -top-12 right-0 text-white hover:text-brand-blue transition-colors"
-            >
-              <X size={32} />
-            </button>
-            <div className="mb-4 flex items-center justify-between border-b pb-2">
-              <h3 className="text-xl font-serif text-brand-dark">Office Location Map</h3>
-              <span className="text-xs text-gray-500">Uploaded Preview</span>
-            </div>
-            <img 
-              src={uploadedImage} 
-              alt="Uploaded Map" 
-              className="w-full h-auto max-h-[70vh] object-contain"
-              referrerPolicy="no-referrer"
-            />
-            <div className="mt-4 text-center">
-              <button 
-                onClick={() => setUploadedImage(null)}
-                className="px-6 py-2 bg-brand-dark text-white font-bold hover:bg-brand-blue transition-all"
-              >
-                Close Preview
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </section>
   );
 }
