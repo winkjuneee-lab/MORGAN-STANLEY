@@ -120,7 +120,7 @@ export const translations = {
       offices: {
         title: 'Global Offices',
         desc: 'Directory of international locations supporting clients across regions.',
-        link: 'Locate Office',
+        link: 'View map',
         address: 'Find our offices worldwide.'
       },
       call: {
@@ -313,7 +313,7 @@ export const translations = {
       offices: {
         title: 'Küresel Ofisler',
         desc: 'Bölgelerdeki müşterileri destekleyen uluslararası lokasyonlar dizini.',
-        link: 'Ofisi Bul',
+        link: 'Haritayı Görüntüle',
         address: 'Dünya çapındaki ofislerimizi bulun.'
       },
       call: {

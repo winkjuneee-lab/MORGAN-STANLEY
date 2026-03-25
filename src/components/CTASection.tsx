@@ -3,29 +3,34 @@ import { ArrowRight, MapPin, Phone, Mail, X } from 'lucide-react';
 import { useLanguage } from '../LanguageContext';
 
 export default function CTASection() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const fileInputRef = useRef<HTMLInputElement>(null);
   const [uploadedImage, setUploadedImage] = useState<string | null>(null);
   const [isLocating, setIsLocating] = useState(false);
+  const [showImage, setShowImage] = useState(false);
 
   const handleLocateClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    fileInputRef.current?.click();
+    if (uploadedImage) {
+      setShowImage(true);
+    } else {
+      fileInputRef.current?.click();
+    }
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
       setIsLocating(true);
-      // Simulate "locating" process
       setTimeout(() => {
         const reader = new FileReader();
         reader.onloadend = () => {
           setUploadedImage(reader.result as string);
           setIsLocating(false);
+          setShowImage(true);
         };
         reader.readAsDataURL(file);
-      }, 1500);
+      }, 1000);
     }
   };
 
@@ -51,7 +56,24 @@ export default function CTASection() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
-            <div className="p-8 border border-gray-100 hover:shadow-lg transition-shadow rounded-sm relative group/card">
+            <div className="p-8 border border-gray-100 hover:shadow-lg transition-shadow rounded-sm relative group/card overflow-hidden">
+              {uploadedImage && (
+                <div className={`absolute inset-0 z-10 bg-white transition-transform duration-500 ${showImage ? 'translate-y-0' : 'translate-y-full'}`}>
+                  <button 
+                    onClick={() => setShowImage(false)}
+                    className="absolute top-2 right-2 p-1 bg-brand-dark text-white rounded-full hover:bg-brand-blue transition-colors z-20"
+                  >
+                    <X size={16} />
+                  </button>
+                  <img 
+                    src={uploadedImage} 
+                    alt="Office Map" 
+                    className="w-full h-full object-cover"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+              )}
+              
               <MapPin className={`mb-4 transition-colors ${isLocating ? 'text-brand-blue animate-bounce' : 'text-brand-blue'}`} size={32} />
               <h3 className="text-xl font-serif text-brand-dark mb-2">{t.cta.offices.title}</h3>
               <p className="text-gray-500 text-sm mb-4">{t.cta.offices.desc}</p>
@@ -68,7 +90,7 @@ export default function CTASection() {
                 disabled={isLocating}
                 className="text-brand-blue font-bold text-sm hover:underline flex items-center space-x-2 disabled:opacity-50"
               >
-                <span>{isLocating ? 'Locating Office...' : t.cta.offices.link}</span>
+                <span>{isLocating ? (language === 'tr' ? 'Konumlanıyor...' : 'Locating...') : t.cta.offices.link}</span>
                 {!isLocating && <ArrowRight size={14} className="opacity-0 group-hover/card:opacity-100 transition-opacity" />}
               </button>
             </div>
